@@ -16,10 +16,10 @@ The runner checks out this project, runs the Blender generator, builds an ARM64 
 
 ## Blender source
 
-The original Blender 4.x generator is `Blender/BuildingInspection/generate_building.py`. It creates `Assets/Resources/Inspection/HaloSpire.fbx` and a preview PNG when run from the repository root:
+The original Blender 4.x generator is `Blender/BuildingInspection/generate_building.py`. It creates `Assets/Resources/Inspection/HaloSpire.obj` and a preview PNG when run from the repository root:
 
 ```sh
 blender --background --factory-startup --python Blender/BuildingInspection/generate_building.py
 ```
 
-The build runner executes this generator before Unity imports the asset. The Android viewer renders the FBX in Unity URP.
+The build runner executes this generator before Unity imports the asset. The Android viewer renders the model in Unity URP.

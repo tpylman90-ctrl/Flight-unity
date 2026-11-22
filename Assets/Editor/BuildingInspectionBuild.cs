@@ -12,7 +12,7 @@ using UnityEngine.Rendering.Universal;
 public static class BuildingInspectionBuild
 {
     private const string ScenePath = "Assets/Scenes/BuildingInspection.unity";
-    private const string BuildingPath = "Assets/Resources/Inspection/HaloSpire.fbx";
+    private const string BuildingPath = "Assets/Resources/Inspection/HaloSpire.obj";
     private const string SettingsPath = "Assets/Settings/InspectionURP.asset";
     private const string RendererPath = "Assets/Settings/InspectionRenderer.asset";
     private const string MaterialFolder = "Assets/Resources/InspectionMaterials";
@@ -105,7 +105,7 @@ public static class BuildingInspectionBuild
             var mapped = new Material[source.Length];
             for (int i = 0; i < source.Length; i++)
             {
-                string name = source[i] != null ? source[i].name.ToLowerInvariant() : "";
+                string name = source[i] != null ? source[i].name.ToLowerInvariant().Replace('_', ' ').Replace('|', ' ') : "";
                 if (name.Contains("illuminated cyan")) mapped[i] = cyanWindow;
                 else if (name.Contains("warm interior")) mapped[i] = warmWindow;
                 else if (name.Contains("cyan ceramic")) mapped[i] = cyanSignal;

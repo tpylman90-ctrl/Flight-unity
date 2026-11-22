@@ -253,18 +253,18 @@ def render_preview():
     for o in list(bpy.context.scene.objects):
         if o.type == "LIGHT": bpy.data.objects.remove(o, do_unlink=True)
 
-def export_fbx():
+def export_unity_obj():
     meshes = merge_named_material_meshes()
     bpy.ops.object.select_all(action="DESELECT")
     for o in meshes: o.select_set(True)
     bpy.context.view_layer.objects.active = meshes[0]
-    bpy.ops.export_scene.fbx(filepath=str(OUT / "HaloSpire.fbx"), use_selection=True,
-        apply_scale_options="FBX_SCALE_ALL", object_types={"MESH"},
-        add_leaf_bones=False, bake_space_transform=False, path_mode="AUTO",
-        axis_forward="-Z", axis_up="Y", use_mesh_modifiers=True, mesh_smooth_type="FACE")
+    bpy.ops.wm.obj_export(filepath=str(OUT / "HaloSpire.obj"), export_selected_objects=False,
+        export_materials=True, export_uv=True, export_normals=True,
+        export_triangulated_mesh=True, path_mode="AUTO",
+        forward_axis="NEGATIVE_Z", up_axis="Y")
 
 clear()
 create_building()
 render_preview()
-export_fbx()
-print("INSPECTION_BUILDING_OK", OUT / "HaloSpire.fbx")
+export_unity_obj()
+print("INSPECTION_BUILDING_OK", OUT / "HaloSpire.obj")

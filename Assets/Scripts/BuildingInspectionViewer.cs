@@ -10,8 +10,8 @@ public sealed class BuildingInspectionViewer : MonoBehaviour
     private Camera viewCamera;
     private float yaw = -32f;
     private float pitch = 13f;
-    private float distance = 92f;
-    private float desiredDistance = 92f;
+    private float distance = 114f;
+    private float desiredDistance = 114f;
     private Vector2 previousPointer;
     private bool dragging;
     private static readonly Vector3 Focus = new Vector3(0f, 30.5f, 0f);
@@ -103,7 +103,7 @@ public sealed class BuildingInspectionViewer : MonoBehaviour
     {
         yaw = -32f;
         pitch = 13f;
-        desiredDistance = 92f;
+        desiredDistance = 114f;
     }
 
     private void OnGUI()

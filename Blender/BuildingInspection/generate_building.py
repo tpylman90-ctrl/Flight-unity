@@ -15,6 +15,7 @@ from mathutils import Vector
 ROOT = Path(__file__).resolve().parents[2]
 OUT = ROOT / "Assets/Resources/Inspection"
 OUT.mkdir(parents=True, exist_ok=True)
+PREVIEW_PATH = Path(__file__).resolve().parent / "BuildingInspection_Preview.png"
 
 def clear():
     bpy.ops.object.select_all(action="SELECT")
@@ -244,7 +245,7 @@ def render_preview():
     scene.render.resolution_y = 960
     scene.render.resolution_percentage = 100
     scene.view_settings.view_transform = "AgX"
-    scene.render.filepath = str(OUT / "BuildingInspection_Preview.png")
+    scene.render.filepath = str(PREVIEW_PATH)
     bpy.ops.render.render(write_still=True)
     # Preview-only ground, camera and lights stay out of the exported asset.
     bpy.data.objects.remove(ground, do_unlink=True)

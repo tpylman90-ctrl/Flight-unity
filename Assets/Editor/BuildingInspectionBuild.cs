@@ -76,7 +76,7 @@ public static class BuildingInspectionBuild
         var cameraObject = new GameObject("Inspection Camera");
         cameraObject.tag = "MainCamera";
         Camera camera = cameraObject.AddComponent<Camera>();
-        camera.fieldOfView = 43f;
+        camera.fieldOfView = 52f;
         camera.nearClipPlane = 0.08f;
         camera.farClipPlane = 260f;
         camera.clearFlags = CameraClearFlags.Skybox;
